@@ -1,0 +1,30 @@
+ 
+
+<div class="custom-container">
+  <h1 mat-dialog-title>Modal usuários</h1>
+    <div mat-dialog-content>
+        <div class="scroll-container"
+            infiniteScroll
+            [infiniteScrollDistance]="2"
+            [infiniteScrollThrottle]="50"
+            (scrolled)="onScroll()"
+            [scrollWindow]="false">
+            <table class="custom-table">
+                <tr *ngFor="let usuario of listaUsuarios">
+                <td>{{ usuario.name }}</td>
+                <td>{{ usuario.email }}</td>
+                </tr>
+                <ng-container *ngIf="carregando" >
+                    <div>Carregando...</div>
+                </ng-container> 
+            </table>
+
+          
+        </div>
+    </div>
+        <div mat-dialog-actions>
+            <button mat-button mat-dialog-close>Close</button>
+       </div>  
+</div>
+
+

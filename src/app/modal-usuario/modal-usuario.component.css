@@ -1,0 +1,30 @@
+.custom-container {
+    width: 100% !important;
+    height: 100% !important;
+    background-color: white !important;       
+        
+    justify-content: center; 
+    align-items: center; 
+
+    h1, table {
+        color: black !important;
+    }    
+}
+
+.scroll-container {
+    max-height: 150px; 
+    overflow-y: scroll; 
+  }
+  
+  .custom-table {
+    width: 100%;    
+  }  
+  
+  .custom-table tr {
+    border-bottom: 1px solid #ccc; 
+  }  
+  
+  .custom-table td {
+    padding: 8px;
+    border-right: 1px solid #ccc; 
+  }
