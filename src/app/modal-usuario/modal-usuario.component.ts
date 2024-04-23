@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./modal-usuario.component.css']
 })
 export class ModalUsuarioComponent {  
-  listaUsuarios: any = [];  
+  userList: any = [];  
   isLoading= false;  
   currentPage=1;
   itemsPerPage=10;
@@ -27,11 +27,10 @@ export class ModalUsuarioComponent {
     this.http.get('http://localhost:3000/users?_limit=10&_page=1')
     .subscribe({
       next: (data: any) => {
-        this.listaUsuarios = data;
+        this.userList = data;
       },
       complete: () => this.toggleLoading()
     });
-    
   }
 
   onScroll= () => {    
@@ -43,7 +42,7 @@ export class ModalUsuarioComponent {
     this.toggleLoading();     
     this.http.get(`http://localhost:3000/users?_page=${this.currentPage}&_limit=10`).subscribe((data: any) => {
       setTimeout(() => {      
-        this.listaUsuarios = [...this.listaUsuarios, ...data];
+        this.userList = [...this.userList, ...data];
         this.toggleLoading();
       }, 2000);     
     });
