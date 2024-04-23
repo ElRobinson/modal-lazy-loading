@@ -10,7 +10,7 @@ import { MatCommonModule } from '@angular/material/core';
 import { ModalUsuarioComponent } from './modal-usuario/modal-usuario.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +24,8 @@ import { InfiniteScrollModule } from "ngx-infinite-scroll";
     HttpClientModule,
     MatCommonModule,
     MatDialogModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    MatProgressSpinnerModule     
   ],
   providers: [],
   bootstrap: [AppComponent]

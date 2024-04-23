@@ -22,6 +22,10 @@
   
   .custom-table tr {
     border-bottom: 1px solid #ccc; 
+
+    th {
+      background: gray;
+    }
   }  
   
   .custom-table td {
