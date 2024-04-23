@@ -8,8 +8,7 @@ import { Component } from '@angular/core';
 })
 export class ModalUsuarioComponent {  
   listaUsuarios: any = [];  
-  isLoading= false;
-  carregando = false;
+  isLoading= false;  
   currentPage=1;
   itemsPerPage=10;
 
@@ -25,23 +24,27 @@ export class ModalUsuarioComponent {
 
   getUsers() {
     this.toggleLoading();
-    this.http.get('http://localhost:3000/users?_limit=10&_page=1').subscribe((data: any) => {
-      this.listaUsuarios = data;
+    this.http.get('http://localhost:3000/users?_limit=10&_page=1')
+    .subscribe({
+      next: (data: any) => {
+        this.listaUsuarios = data;
+      },
+      complete: () => this.toggleLoading()
     });
+    
   }
 
-  onScroll= () => {
-    this.carregando = true;
+  onScroll= () => {    
     this.currentPage++;
     this.getMoreUsers();
    }
 
-  getMoreUsers() {    
-    console.log('getMoreUsers');
+  getMoreUsers() {   
+    this.toggleLoading();     
     this.http.get(`http://localhost:3000/users?_page=${this.currentPage}&_limit=10`).subscribe((data: any) => {
       setTimeout(() => {      
         this.listaUsuarios = [...this.listaUsuarios, ...data];
-        this.carregando = false;      
+        this.toggleLoading();
       }, 2000);     
     });
   }
